@@ -1,6 +1,7 @@
 
 import React from 'react';
-import ProjectCard from './ProjectCard';
+import { Eye, Github } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 // Sample project data - replace with your own
 const projects = [
@@ -12,7 +13,6 @@ const projects = [
     tags: ["React", "Node.js", "MongoDB", "Stripe"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
-    delay: 0.2
   },
   {
     id: 2,
@@ -22,7 +22,6 @@ const projects = [
     tags: ["TypeScript", "React", "Firebase", "Tailwind CSS"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
-    delay: 0.4
   },
   {
     id: 3,
@@ -32,7 +31,6 @@ const projects = [
     tags: ["Vue.js", "Express", "PostgreSQL", "Chart.js"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
-    delay: 0.6
   },
   {
     id: 4,
@@ -42,28 +40,88 @@ const projects = [
     tags: ["React Native", "Redux", "Weather API", "Geolocation"],
     liveUrl: "https://example.com",
     githubUrl: "https://github.com",
-    delay: 0.8
   }
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="bg-black/30">
-      <div className="section-container">
-        <h2 className="section-heading">Featured Projects</h2>
+    <section id="projects" className="bg-black min-h-screen">
+      <div className="mx-auto px-6 lg:px-8 py-24">
+        <div className="mb-2">
+          <Badge 
+            variant="outline" 
+            className="border-white/20 text-white font-medium px-4 py-1.5 rounded-full"
+          >
+            Featured projects
+          </Badge>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              image={project.image}
-              tags={project.tags}
-              liveUrl={project.liveUrl}
-              githubUrl={project.githubUrl}
-              delay={project.delay}
-            />
+        <h2 className="text-6xl font-bold mb-8 text-white">Projects</h2>
+        
+        <p className="text-xl text-gray-400 max-w-3xl mb-16">
+          Helping businesses showcase their work with modern web applications that
+          captivate and convert effectively.
+        </p>
+        
+        <div className="flex flex-col space-y-16">
+          {projects.map((project, index) => (
+            <div 
+              key={project.id} 
+              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}
+            >
+              <div className="w-full lg:w-1/2">
+                <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-white/5">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              
+              <div className="w-full lg:w-1/2 space-y-6">
+                <h3 className="text-3xl font-bold text-white">{project.title}</h3>
+                
+                <p className="text-gray-400">{project.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag, i) => (
+                    <span 
+                      key={i} 
+                      className="bg-black border border-white/20 text-white text-sm px-4 py-1.5 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="flex gap-4">
+                  {project.liveUrl && (
+                    <a 
+                      href={project.liveUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="glow-button rounded-full px-6 py-2 text-sm flex items-center gap-2"
+                    >
+                      <Eye className="h-4 w-4" />
+                      See Project
+                    </a>
+                  )}
+                  
+                  {project.githubUrl && (
+                    <a 
+                      href={project.githubUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="border border-white/20 text-white rounded-full px-6 py-2 text-sm flex items-center gap-2 hover:bg-white/5 transition-all"
+                    >
+                      <Github className="h-4 w-4" />
+                      View Code
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
