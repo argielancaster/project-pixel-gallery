@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { Mail, Phone, User } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
@@ -47,40 +46,40 @@ const Contact = () => {
             
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 text-white border border-white/20">
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Email</p>
-                  <a href="mailto:your.email@example.com" className="text-white hover:text-primary transition-colors">
+                  <a href="mailto:your.email@example.com" className="text-white hover:glow-text transition-all">
                     your.email@example.com
                   </a>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 text-white border border-white/20">
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Phone</p>
-                  <a href="tel:+1234567890" className="text-white hover:text-primary transition-colors">
+                  <a href="tel:+1234567890" className="text-white hover:glow-text transition-all">
                     +1 (234) 567-890
                   </a>
                 </div>
               </div>
               
               <div className="flex items-center space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 text-white border border-white/20">
                   <User className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-400">Social Profiles</p>
                   <div className="flex space-x-4 mt-2">
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-white hover:glow-text transition-all">
                       GitHub
                     </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors">
+                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:glow-text transition-all">
                       LinkedIn
                     </a>
                   </div>
@@ -102,7 +101,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-secondary/50 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent"
                   placeholder="John Doe"
                 />
               </div>
@@ -118,7 +117,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-secondary/50 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent"
                   placeholder="johndoe@example.com"
                 />
               </div>
@@ -134,14 +133,18 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-secondary/50 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-md focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent resize-none"
                   placeholder="Hello, I'd like to talk about..."
                 ></textarea>
               </div>
               
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
+              <button 
+                type="submit" 
+                className="glow-button w-full"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
-              </Button>
+              </button>
             </form>
           </div>
         </div>

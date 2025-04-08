@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { ExternalLink, Github } from 'lucide-react';
 
 interface ProjectCardProps {
@@ -24,7 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <div 
-      className="project-card opacity-0 animate-fade-in" 
+      className="project-card opacity-0 animate-fade-in bg-black/30 border border-white/10" 
       style={{ animationDelay: `${delay}s` }}
     >
       <div className="overflow-hidden aspect-video">
@@ -36,7 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
       
       <div className="p-6">
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <h3 className="text-xl font-bold mb-2 glow-text">{title}</h3>
         
         <div className="mb-4">
           {tags.map((tag, index) => (
@@ -50,21 +49,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         
         <div className="flex space-x-4">
           {liveUrl && (
-            <Button size="sm" asChild>
-              <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="mr-2 h-4 w-4" />
-                Live Demo
-              </a>
-            </Button>
+            <a 
+              href={liveUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="glow-button text-sm py-2"
+            >
+              <ExternalLink className="mr-2 h-4 w-4 inline" />
+              Live Demo
+            </a>
           )}
           
           {githubUrl && (
-            <Button variant="outline" size="sm" asChild>
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-4 w-4" />
-                Code
-              </a>
-            </Button>
+            <a 
+              href={githubUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="glow-button text-sm py-2 bg-white/5"
+            >
+              <Github className="mr-2 h-4 w-4 inline" />
+              Code
+            </a>
           )}
         </div>
       </div>

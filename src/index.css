@@ -5,25 +5,25 @@
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 246 83.3% 67.1%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 246 83.3% 67.1%;
-    --accent-foreground: 0 0% 98%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 0%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 246 83.3% 67.1%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 40%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 100%;
     --radius: 0.5rem;
   }
 }
@@ -60,15 +60,15 @@
   }
   
   .skill-badge {
-    @apply px-3 py-1 rounded-full text-sm bg-secondary text-foreground transition-colors;
+    @apply px-3 py-1 rounded-full text-sm bg-secondary text-foreground transition-colors border border-transparent;
   }
   
   .skill-badge:hover {
-    @apply bg-primary text-white;
+    @apply bg-black text-white border-white/50 shadow-md shadow-white/10;
   }
   
   .project-tag {
-    @apply inline-block px-2 py-1 text-xs rounded-md mr-2 mb-2 bg-secondary/60 backdrop-blur-sm;
+    @apply inline-block px-2 py-1 text-xs rounded-md mr-2 mb-2 bg-secondary border border-white/10;
   }
   
   .section-heading {
@@ -77,6 +77,22 @@
   
   .section-heading::after {
     content: "";
-    @apply absolute left-0 -bottom-3 w-16 h-1 bg-primary rounded-full;
+    @apply absolute left-0 -bottom-3 w-16 h-1 bg-white rounded-full;
+  }
+
+  /* Glow effects */
+  .glow-text {
+    @apply text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.5)];
+  }
+  
+  .glow-border {
+    @apply border border-white/80 shadow-[0_0_10px_rgba(255,255,255,0.3)];
+  }
+
+  .glow-button {
+    @apply relative border border-white/80 text-white bg-transparent rounded-full 
+           px-6 py-3 font-medium transition-all duration-300
+           shadow-[0_0_10px_rgba(255,255,255,0.2)]
+           hover:shadow-[0_0_15px_rgba(255,255,255,0.4)];
   }
 }
