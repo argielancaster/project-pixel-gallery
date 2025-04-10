@@ -78,7 +78,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="bg-black min-h-screen">
+    <section id="projects" className="bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="mb-2">
           <Badge 
@@ -89,24 +89,24 @@ const Projects = () => {
           </Badge>
         </div>
         
-        <h2 className="text-6xl font-bold mb-8 text-white">Projects</h2>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8 text-white">Projects</h2>
         
-        <p className="text-xl text-gray-400 max-w-3xl mb-16">
+        <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mb-12 sm:mb-16">
           Helping businesses showcase their work with modern web applications that
           captivate and convert effectively.
         </p>
         
-        <div className="flex flex-col space-y-16">
+        <div className="flex flex-col space-y-12 sm:space-y-16">
           {projects.map((project, index) => (
             <div 
               key={project.id}
               ref={el => {
                 if (el) projectRefs.current[index] = el;
               }}
-              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center transition-all duration-700 transform ${index % 2 === 0 ? '-translate-x-full' : 'translate-x-full'} opacity-0`}
+              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-6 sm:gap-8 lg:gap-16 items-center transition-all duration-700 transform ${index % 2 === 0 ? '-translate-x-full' : 'translate-x-full'} opacity-0`}
             >
               <div className="w-full lg:w-1/2">
-                <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-white/5">
+                <div className="rounded-xl sm:rounded-2xl overflow-hidden aspect-[4/3] bg-white/5">
                   <img 
                     src={project.image} 
                     alt={project.title} 
@@ -115,31 +115,31 @@ const Projects = () => {
                 </div>
               </div>
               
-              <div className="w-full lg:w-1/2 space-y-6">
-                <h3 className="text-3xl font-bold text-white">{project.title}</h3>
+              <div className="w-full lg:w-1/2 space-y-4 sm:space-y-6">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">{project.title}</h3>
                 
                 <p className="text-gray-400">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                   {project.tags.map((tag, i) => (
                     <span 
                       key={i} 
-                      className="bg-black border border-white/20 text-white text-sm px-4 py-1.5 rounded-full"
+                      className="bg-black border border-white/20 text-white text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                <div className="flex gap-4">
+                <div className="flex gap-3 sm:gap-4">
                   {project.liveUrl && (
                     <a 
                       href={project.liveUrl} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="glow-button rounded-full px-6 py-2 text-sm flex items-center gap-2"
+                      className="glow-button rounded-full px-4 sm:px-6 py-2 text-xs sm:text-sm flex items-center gap-2"
                     >
-                      <Eye className="h-4 w-4" />
+                      <Eye className="h-3 w-3 sm:h-4 sm:w-4" />
                       See Project
                     </a>
                   )}
@@ -149,9 +149,9 @@ const Projects = () => {
                       href={project.githubUrl} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="border border-white/20 text-white rounded-full px-6 py-2 text-sm flex items-center gap-2 hover:bg-white/5 transition-all"
+                      className="border border-white/20 text-white rounded-full px-4 sm:px-6 py-2 text-xs sm:text-sm flex items-center gap-2 hover:bg-white/5 transition-all"
                     >
-                      <Github className="h-4 w-4" />
+                      <Github className="h-3 w-3 sm:h-4 sm:w-4" />
                       View Code
                     </a>
                   )}

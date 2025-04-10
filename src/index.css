@@ -68,7 +68,7 @@
   }
   
   .skill-item {
-    @apply transition-all duration-300 hover:scale-110;
+    @apply transition-all duration-300;
   }
   
   .skill-icon-container {
@@ -103,5 +103,18 @@
            px-6 py-3 font-medium transition-all duration-300
            shadow-[0_0_10px_rgba(255,255,255,0.2)]
            hover:shadow-[0_0_15px_rgba(255,255,255,0.4)];
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .skill-icon-container {
+      @apply w-14 h-14 p-2;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .skill-icon-container {
+      @apply w-12 h-12 p-1.5;
+    }
   }
 }
