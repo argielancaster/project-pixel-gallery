@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Eye, Github } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
@@ -44,9 +44,42 @@ const projects = [
 ];
 
 const Projects = () => {
+  const projectRefs = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('translate-x-0', 'opacity-100');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    projectRefs.current.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      projectRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
     <section id="projects" className="bg-black min-h-screen">
-      <div className="mx-auto px-6 lg:px-8 py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="mb-2">
           <Badge 
             variant="outline" 
@@ -66,8 +99,11 @@ const Projects = () => {
         <div className="flex flex-col space-y-16">
           {projects.map((project, index) => (
             <div 
-              key={project.id} 
-              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}
+              key={project.id}
+              ref={el => {
+                if (el) projectRefs.current[index] = el;
+              }}
+              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center transition-all duration-700 transform ${index % 2 === 0 ? '-translate-x-full' : 'translate-x-full'} opacity-0`}
             >
               <div className="w-full lg:w-1/2">
                 <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-white/5">
