@@ -103,7 +103,7 @@ const Projects = () => {
               ref={el => {
                 if (el) projectRefs.current[index] = el;
               }}
-              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-6 sm:gap-8 lg:gap-16 items-center transition-all duration-700 transform ${index % 2 === 0 ? '-translate-x-full' : 'translate-x-full'} opacity-0`}
+              className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-center transition-all duration-700 transform -translate-x-full opacity-0"
             >
               <div className="w-full lg:w-1/2">
                 <div className="rounded-xl sm:rounded-2xl overflow-hidden aspect-[4/3] bg-white/5">

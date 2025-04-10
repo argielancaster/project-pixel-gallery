@@ -67,7 +67,7 @@ const Skills = () => {
                       <img 
                         src={skill.image} 
                         alt={skill.name}
-                        className="w-12 h-12 grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
+                        className="w-[13.5px] h-[13.5px] sm:w-[13.5px] sm:h-[13.5px] md:w-[13.5px] md:h-[13.5px] grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
                       />
                     </div>
                     <span className="mt-2 text-xs text-white/70 group-hover:text-white transition-all">
@@ -92,7 +92,7 @@ const Skills = () => {
                       <img 
                         src={skill.image} 
                         alt={skill.name}
-                        className="w-12 h-12 grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
+                        className="w-[13.5px] h-[13.5px] sm:w-[13.5px] sm:h-[13.5px] md:w-[13.5px] md:h-[13.5px] grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
                       />
                     </div>
                     <span className="mt-2 text-xs text-white/70 group-hover:text-white transition-all">
@@ -117,7 +117,7 @@ const Skills = () => {
                       <img 
                         src={skill.image} 
                         alt={skill.name}
-                        className="w-12 h-12 grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
+                        className="w-[13.5px] h-[13.5px] sm:w-[13.5px] sm:h-[13.5px] md:w-[13.5px] md:h-[13.5px] grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
                       />
                     </div>
                     <span className="mt-2 text-xs text-white/70 group-hover:text-white transition-all">
@@ -142,7 +142,7 @@ const Skills = () => {
                       <img 
                         src={skill.image} 
                         alt={skill.name}
-                        className="w-12 h-12 grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
+                        className="w-[13.5px] h-[13.5px] sm:w-[13.5px] sm:h-[13.5px] md:w-[13.5px] md:h-[13.5px] grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
                       />
                     </div>
                     <span className="mt-2 text-xs text-white/70 group-hover:text-white transition-all">
@@ -167,7 +167,7 @@ const Skills = () => {
                       <img 
                         src={skill.image} 
                         alt={skill.name}
-                        className="w-12 h-12 grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
+                        className="w-[13.5px] h-[13.5px] sm:w-[13.5px] sm:h-[13.5px] md:w-[13.5px] md:h-[13.5px] grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-105"
                       />
                     </div>
                     <span className="mt-2 text-xs text-white/70 group-hover:text-white transition-all">
